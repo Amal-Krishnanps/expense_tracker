@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(120, 230, 120);
+    color: white;
+}
+
+.navbar h1{
+    margin: 0;
+    font-size: 24px;
+
+}
+
+.navbar a{
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+/* container */
+.container{
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* table */
+
+table{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table th{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(170, 163, 163);
+    color: white;
+    background-color: rgb(120, 230, 120);
+    font-weight: bold;
+}
+
+table td{
+    text-align: left;
+    padding: 6px;
+    border-bottom:1px solid rgb(170, 163, 163);
+}
+
+table tr:hover {
+    background-color: #e9e9e9; 
+}
+
+
+table td a {
+    color:rgb(47, 194, 47);
+    text-decoration: none;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+
+/* summary */
+
+h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+ul li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+
+/* Export  */
+
+.export-options a{
+    text-decoration: none; 
+
+}

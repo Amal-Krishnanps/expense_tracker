@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(120, 230, 120);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container{
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align:center;
+            box-shadow: 0px 4px 6px rgba(34, 4, 4, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            margin-bottom: 10px; 
+        }
+
+   
+        form label {
+            text-align: right;
+            margin-right: 5px; 
+            font-weight:normal;
+        }
+        
+        form input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color:rgb(42, 92, 199); 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        form button:hover {
+            background-color:rgb(21, 79, 134); 
+        }
+        
+
+        a {
+            color: blue; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        
+        .helptext {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Sign Up</h2>
+
+
+        {% if request.method == "POST" and form.errors %}
+        <div class="error-messages">
+        {% for field, errors in form.errors.items %}
+        <strong>{{ field|capfirst }}:</strong>
+        <ul>
+            {% for error in errors %}
+                <li style="color: red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post" autocomplete="off" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password1">Password:</label>
+                <input type="password" id="password1" name="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        </form>
+
+        <p>Already have an account? <a href="{% url 'signin' %}">Login here</a></p>
+    </div>
+</body>
+</html>

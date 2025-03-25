@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+  </head>
+  <body>
+    <div class="navbar">
+      {% comment %} <h1>Dashboard</h1> {% endcomment %}
+      <h1>Welcome, {{ request.user.username }}</h1>
+      <a href="{% url 'add_expense' %}">Add Expense</a>
+      <a href="{% url 'signout' %}">Logout</a>
+    </div>
+
+    <div class="container">
+      <p>Total Expense: ₹{{ total_expense }}</p>
+
+
+      <table>
+        <tr><th>Title</th><th>Amount</th><th>Category</th><th>Date</th><th>Actions</th></tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.title }}</td>
+            <td>₹{{ expense.amount }}</td>
+            <td>{{ expense.category }}</td>
+            <td>{{ expense.date }}</td>
+            <td>
+                <a href="{% url 'edit_expense' expense.id %}">Edit</a>
+                <a href="{% url 'delete_expense' expense.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <div class="export-options">
+      <a href="{% url 'export_excel' %}">Export to Excel</a>
+  </div>
+
+      <h3>Expenses by Category</h3>
+      <ul>
+        {% for item in categorized_summary %}
+        <li>{{ item.category }}: {{ item.total }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

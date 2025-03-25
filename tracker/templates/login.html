@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:rgb(120, 230, 120);
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container{
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(34, 4, 4, 0.1);
+        }
+
+        h2{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color:rgb(29, 82, 151); 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color:rgb(18, 20, 126);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url "signup" %}">SignUp Here</a></p>
+    </div>
+    
+</body>
+</html>
