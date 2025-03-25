@@ -13,7 +13,7 @@ Users can export expenses to a Excel file.
 ## Setup Instructions
 **1. Clone the Repository**
 
-    git clone https://github.com/Amal-Krishnanps/expense_tracker.gitgit add README.md
+    git clone https://github.com/Amal-Krishnanps/expense_tracker.git
     
     cd expense_tracker
 
